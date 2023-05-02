@@ -1,8 +1,9 @@
 ## Team_Project
 
-#설정
+설정
 
 Edit - Project Settings - Editor - Force Text
+
 Edit - Project Settings - Version Control - Visible Meta Files
 
 파일탐색기에서 파일을 옮기는 경우 메타파일이 재생성되서 참조가 사라집니다.
