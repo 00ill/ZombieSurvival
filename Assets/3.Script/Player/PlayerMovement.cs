@@ -34,7 +34,12 @@ public class PlayerMovement : MonoBehaviour
 
     private void Rotate()
     {
-        float turn = playerInput.rotate * rotateSpeed * Time.deltaTime;
-        playerRigidbody.rotation = playerRigidbody.rotation * Quaternion.Euler(0, turn, 0f);
+        Ray cameraRay = Camera.main.ScreenPointToRay(Input.mousePosition);
+        Plane GroupPlane = new Plane(Vector3.up, Vector3.zero);
+        if (GroupPlane.Raycast(cameraRay, out float rayLength))
+        {
+            Vector3 pointTolook = cameraRay.GetPoint(rayLength);
+            transform.LookAt(new Vector3(pointTolook.x, transform.position.y, pointTolook.z));
+        }
     }
 }
